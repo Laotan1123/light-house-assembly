@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #ff6b00;
+    --primary-hover: #ff8533;
+  }
+}
+
+.nav-link {
+  @apply px-4 py-2 text-gray-700 hover:text-primary transition-colors;
+}
+
+.nav-link.active {
+  @apply text-primary font-medium;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-medium transition-colors;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold text-gray-900 mb-6;
+}
+
+.audio-player {
+  @apply w-full bg-white rounded-lg shadow-md p-4;
+}
+
+.audio-player audio {
+  @apply w-full;
+}
+
+.audio-controls {
+  @apply flex items-center gap-4 mt-4;
+}
