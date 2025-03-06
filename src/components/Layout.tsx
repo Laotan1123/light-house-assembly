@@ -16,11 +16,14 @@ export function Layout({ children }: LayoutProps) {
     <div className="min-h-screen flex flex-col">
       <header className="bg-white shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="Light House Assembly Logo" className="h-8 w-8" />
-            <span className="text-xl font-bold text-black">Lighthouse</span>
-            <span className="text-xl font-bold text-orange-500"> Assembly</span>
-          </Link>
+            <div className="flex items-center justify-start pl-0">
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="Light House Assembly Logo" className="h-14 w-20" />
+            
+              <span className="text-xl font-bold text-black">Lighthouse</span>
+              <span className="text-xl font-bold text-orange-500"> Assembly</span>
+            </Link>
+            </div>
           
           <div className="flex gap-8">
             <Link to="/" className={`${isActive('/')} transition-colors`}>
