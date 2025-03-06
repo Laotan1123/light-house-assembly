@@ -8,7 +8,7 @@ export function Home() {
       <div 
         className="relative h-[600px] bg-cover bg-center"
         style={{
-          backgroundImage: 'url("./src/assets/background.jpg")'
+          backgroundImage: 'url("./images/background.jpg")'
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60" />

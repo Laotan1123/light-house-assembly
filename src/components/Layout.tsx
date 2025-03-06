@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/lha logo.png';
+import logo from '/images/lha logo.png';
 
 interface LayoutProps {
   children: React.ReactNode;

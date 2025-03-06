@@ -79,27 +79,27 @@ export function About() {
               {
               name: "Bolanle Dada",
               role: "Leader",
-              image: "./src/assets/bolanle-dada.jpg"
+              image: "./images/bolanle-dada.jpg"
               },
               {
               name: "Johnson Odigili",
               role: "Leader",
-              image: "./src/assets/johnson.jpg"
+              image: "./images/johnson.jpg"
               },
               {
                 name: "Eme Ibitayo",
                 role: "Leader",
-                image: "./src/assets/eme.jpg"
+                image: "./images/eme.jpg"
               },
               {
                 name: "Ayo Ogunbiyi",
                 role: "Leader",
-                image: "./src/assets/ogunbiyi.jpg"
+                image: "./images/ogunbiyi.jpg"
               },
               {
                 name: "Nosa",
                 role: "Leader",
-                image: "./src/assets/nosa.jpg"
+                image: "./images/nosa.jpg"
               }
             ].map((leader, index) => (
               <div key={index} className="text-center">
