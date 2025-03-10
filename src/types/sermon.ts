@@ -5,4 +5,5 @@ export interface Sermon {
   date: string;
   audioUrl: string;
   description: string;
+  thumbnail: string;
 }

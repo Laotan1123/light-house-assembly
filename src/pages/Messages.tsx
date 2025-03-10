@@ -1,89 +1,36 @@
-import { useState } from 'react';
 import { sermons } from '../data/sermons';
-import { AudioPlayer } from '../components/AudioPlayer';
 
 export function Messages() {
-  const [expandedSermons, setExpandedSermons] = useState<Set<string>>(new Set());
-
-  const toggleSermon = (sermonId: string) => {
-    setExpandedSermons(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(sermonId)) {
-        newSet.delete(sermonId);
-      } else {
-        newSet.add(sermonId);
-      }
-      return newSet;
-    });
-  };
-
   return (
-    <div className="bg-gray-50 min-h-screen py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-center text-gray-900 mb-4">
-          Audio Messages
+    <div className="py-8 sm:py-16 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-white">
+          Messages
         </h1>
-        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
-          Listen to our latest sermons and messages. Be inspired and grow in your faith
-          journey.
-        </p>
 
-        <div className="space-y-6">
-          {sermons.map((sermon) => {
-            const isExpanded = expandedSermons.has(sermon.id);
-            
-            return (
-              <div
-                key={sermon.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <div
-                  className={`p-6 cursor-pointer transition-all ${
-                    isExpanded ? 'bg-orange-50' : 'hover:bg-gray-50'
-                  }`}
-                  onClick={() => toggleSermon(sermon.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      toggleSermon(sermon.id);
-                    }
-                  }}
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-grow">
-                      <h3 className="text-xl font-semibold mb-2">{sermon.title}</h3>
-                      <p className="text-gray-600 mb-2">
-                        {sermon.speaker} • {new Date(sermon.date).toLocaleDateString()}
-                      </p>
-                      <p className="text-gray-700">{sermon.description}</p>
-                    </div>
-                    <svg
-                      className={`w-6 h-6 text-gray-400 transform transition-transform ${
-                        isExpanded ? 'rotate-180' : ''
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                
-                {isExpanded && (
-                  <div className="px-6 pb-6">
-                    <AudioPlayer url={sermon.audioUrl} title={sermon.title} />
-                  </div>
-                )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sermons.map((sermon, index) => (
+            <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+              <div className="aspect-w-16 aspect-h-9">
+                <img src={sermon.thumbnail} alt={sermon.title} className="object-cover w-full h-full" />
               </div>
-            );
-          })}
+              <div className="p-4">
+                <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{sermon.title}</h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{sermon.description}</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500 dark:text-gray-400">{new Date(sermon.date).toLocaleDateString()}</span>
+                  <a 
+                    href={sermon.audioUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300"
+                  >
+                    Listen Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

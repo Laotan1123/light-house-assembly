@@ -74,15 +74,17 @@ export function Contact() {
   };
 
   return (
-    <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-12">Contact Us</h1>
+    <div className="py-8 sm:py-16 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-900 dark:text-white">
+          Contact Us
+        </h1>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
-            <div className="space-y-6">
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Get in Touch</h2>
+            <div className="space-y-4 text-gray-600 dark:text-gray-300">
               <div className="flex items-start gap-4">
                 <MapPin className="w-6 h-6 text-orange-500 flex-shrink-0" />
                 <div>
@@ -135,8 +137,8 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div>
-            <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
+          <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
             {status.type && (
               <div
                 className={`mb-6 p-4 rounded-lg ${
@@ -150,7 +152,7 @@ export function Contact() {
             )}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Name
                 </label>
                 <input
@@ -161,12 +163,12 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Email
                 </label>
                 <input
@@ -177,12 +179,12 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Subject
                 </label>
                 <input
@@ -193,12 +195,12 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Message
                 </label>
                 <textarea
@@ -209,14 +211,14 @@ export function Contact() {
                   required
                   disabled={isSubmitting}
                   rows={6}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors disabled:bg-orange-300 disabled:cursor-not-allowed"
+                className="w-full bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
